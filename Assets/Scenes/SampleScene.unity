@@ -210,6 +210,7 @@ GameObject:
   - component: {fileID: 87661286}
   - component: {fileID: 87661285}
   - component: {fileID: 87661284}
+  - component: {fileID: 87661287}
   m_Layer: 5
   m_Name: Button
   m_TagString: Untagged
@@ -282,7 +283,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1999745996}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: Healer, Assembly-CSharp
         m_MethodName: Heal
         m_Mode: 1
@@ -332,6 +333,20 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 87661282}
   m_CullTransparentMesh: 1
+--- !u!114 &87661287
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 87661282}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fc5e379984cc0acb4a993d2de9b608f2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _health: {fileID: 1825325040}
+  value: 20
 --- !u!1 &100423911
 GameObject:
   m_ObjectHideFlags: 0
@@ -344,6 +359,7 @@ GameObject:
   - component: {fileID: 100423915}
   - component: {fileID: 100423914}
   - component: {fileID: 100423913}
+  - component: {fileID: 100423916}
   m_Layer: 5
   m_Name: Button
   m_TagString: Untagged
@@ -416,7 +432,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1298343473}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: Damager, Assembly-CSharp
         m_MethodName: Damage
         m_Mode: 1
@@ -466,6 +482,20 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 100423911}
   m_CullTransparentMesh: 1
+--- !u!114 &100423916
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 100423911}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 289f83405edce88b38271d00c160702d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _health: {fileID: 1825325040}
+  value: 20
 --- !u!1 &234147035
 GameObject:
   m_ObjectHideFlags: 0
@@ -746,7 +776,7 @@ MonoBehaviour:
     m_PressedTrigger: Pressed
     m_SelectedTrigger: Selected
     m_DisabledTrigger: Disabled
-  m_Interactable: 1
+  m_Interactable: 0
   m_TargetGraphic: {fileID: 739668621}
   m_FillRect: {fileID: 2135297345}
   m_HandleRect: {fileID: 739668620}
@@ -772,7 +802,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _health: {fileID: 1825325040}
   _healthBar: {fileID: 392952278}
-  _smoothSpeed: 0.5
+  _duration: 2
 --- !u!1 &393772563
 GameObject:
   m_ObjectHideFlags: 0
@@ -1176,7 +1206,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: -8.949402, y: 0.13430786}
+  m_AnchoredPosition: {x: -8.949432, y: 0.13430786}
   m_SizeDelta: {x: 24.7469, y: -34.1841}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &739668621
@@ -1376,7 +1406,7 @@ MonoBehaviour:
     m_PressedTrigger: Pressed
     m_SelectedTrigger: Selected
     m_DisabledTrigger: Disabled
-  m_Interactable: 1
+  m_Interactable: 0
   m_TargetGraphic: {fileID: 1698141912}
   m_FillRect: {fileID: 860941826}
   m_HandleRect: {fileID: 1698141911}
@@ -1559,7 +1589,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1298343472}
-  - component: {fileID: 1298343473}
   m_Layer: 5
   m_Name: Damage Button
   m_TagString: Untagged
@@ -1587,20 +1616,6 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &1298343473
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1298343471}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 289f83405edce88b38271d00c160702d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _health: {fileID: 1825325040}
-  _damageValue: 20
 --- !u!1 &1319157815
 GameObject:
   m_ObjectHideFlags: 0
@@ -2496,7 +2511,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1999745995}
-  - component: {fileID: 1999745996}
   m_Layer: 5
   m_Name: Heal Button
   m_TagString: Untagged
@@ -2524,20 +2538,6 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &1999745996
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1999745994}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fc5e379984cc0acb4a993d2de9b608f2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _health: {fileID: 1825325040}
-  _healValue: 20
 --- !u!1 &2025154854
 GameObject:
   m_ObjectHideFlags: 0
@@ -2859,7 +2859,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 4.4999084, y: 0}
+  m_AnchoredPosition: {x: 4.499939, y: 0}
   m_SizeDelta: {x: 8.9998, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2135297346

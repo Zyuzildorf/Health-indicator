@@ -11,7 +11,6 @@ public class Health : MonoBehaviour
     
     public int MaxHealth { get; private set; }
     public int CurrentHealth => _health;
-
     
     private void Awake()
     {
@@ -31,7 +30,6 @@ public class Health : MonoBehaviour
             HealthChanged?.Invoke(_health);
             DamageTaken?.Invoke();
         }
-        
         
         if (_health <= 0)
         {

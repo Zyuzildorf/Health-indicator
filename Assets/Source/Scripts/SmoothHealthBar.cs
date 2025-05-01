@@ -2,28 +2,15 @@ using System.Collections;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class SmoothHealthBar : MonoBehaviour
+public class SmoothHealthBar : HealthIndicator
 {
-    [SerializeField] private Health _health;
     [SerializeField] private Slider _healthBar;
-    [SerializeField] private float _smoothSpeed = 0.5f;
+    [SerializeField] private float _duration = 2f;
 
     private Coroutine _currentCoroutine;
-    
-    private void OnEnable()
-    {
-        _health.HealthChanged += UpdateHealthBar;
-    }
 
-    private void OnDisable()
+    protected override void UpdateHealthIndicator(int healthValue)
     {
-        _health.HealthChanged -= UpdateHealthBar;
-    }
-
-    private void UpdateHealthBar(int healthValue)
-    {
-        if (_healthBar == null) return;
-        
         if (_currentCoroutine != null)
         {
             StopCoroutine(_currentCoroutine);
@@ -36,12 +23,12 @@ public class SmoothHealthBar : MonoBehaviour
     {
         float targetValue = (float)targetHealth / _health.MaxHealth;
         float startValue = _healthBar.value;
-        float progress = 0f;
+        float timePassed = 0f;
 
-        while (progress < 1f)
+        while (timePassed < _duration)
         {
-            progress += Time.deltaTime * _smoothSpeed;
-            _healthBar.value = Mathf.MoveTowards(startValue, targetValue, progress);
+            timePassed += Time.deltaTime;
+            _healthBar.value = Mathf.MoveTowards(startValue, targetValue, timePassed / _duration);
             yield return null;
         }
         

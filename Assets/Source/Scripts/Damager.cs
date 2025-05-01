@@ -1,12 +1,7 @@
-using UnityEngine;
-
-public class Damager : MonoBehaviour
+public class Damager : HealthChangingButton
 {
-    [SerializeField] private Health _health;
-    [SerializeField] private int _damageValue = 20;
-    
-    public void Damage()
+    protected override void ChangeHealthValue()
     {
-        _health.TakeDamage(_damageValue);
+        _health.TakeDamage(value);
     }
 }

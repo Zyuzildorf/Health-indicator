@@ -1,26 +1,12 @@
 using UnityEngine;
 using UnityEngine.UI;
 
-public class HealthBar : MonoBehaviour
+public class HealthBar : HealthIndicator
 {
-    [SerializeField] private Health _health;
     [SerializeField] private Slider _healthBar;
 
-    private void OnEnable()
+    protected override void UpdateHealthIndicator(int healthValue)
     {
-        _health.HealthChanged += UpdateHealthBar;
-    }
-
-    private void OnDisable()
-    {
-        _health.HealthChanged -= UpdateHealthBar;
-    }
-
-    private void UpdateHealthBar(int healthValue)
-    {
-        if (_healthBar != null)
-        {
-            _healthBar.value = (float)healthValue / _health.MaxHealth;
-        }
+        _healthBar.value = (float)healthValue / _health.MaxHealth;
     }
 }

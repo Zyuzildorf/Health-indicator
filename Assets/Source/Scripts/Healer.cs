@@ -1,12 +1,7 @@
-using UnityEngine;
-
-public class Healer : MonoBehaviour
+public class Healer : HealthChangingButton
 {
-    [SerializeField] private Health _health;
-    [SerializeField] private int _healValue = 20;
-    
-    public void Heal()
+    protected override void ChangeHealthValue()
     {
-        _health.HealthRecover(_healValue);
+        _health.HealthRecover(value);
     }
 }
