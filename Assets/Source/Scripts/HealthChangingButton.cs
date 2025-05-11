@@ -4,10 +4,10 @@ using UnityEngine.UI;
 [RequireComponent(typeof(Button))]
 abstract public class HealthChangingButton : MonoBehaviour
 {
-    [SerializeField] protected Health _health;
-    [SerializeField] protected int value;
+    [SerializeField] protected Health Health;
+    [SerializeField] protected int Value;
 
-    protected Button Button;
+    private Button Button;
 
     protected void Awake()
     {
@@ -24,7 +24,5 @@ abstract public class HealthChangingButton : MonoBehaviour
         Button.onClick.RemoveListener(ChangeHealthValue);
     }
 
-    protected virtual void ChangeHealthValue()
-    {
-    }
+    protected abstract void ChangeHealthValue();
 }

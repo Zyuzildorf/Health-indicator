@@ -8,11 +8,11 @@ public class HealthTextIndicator : HealthIndicator
 
     private void Start()
     {
-        _healthText.text = Convert.ToString(_health.CurrentHealth + "/" + _health.MaxHealth);
+        _healthText.text = Convert.ToString(Health.CurrentValue + "/" + Health.MaxHealth);
     }
 
     protected override void UpdateHealthIndicator(int healthValue)
     {
-        _healthText.text = Convert.ToString(healthValue + "/" + _health.MaxHealth);
+        _healthText.text = Convert.ToString(healthValue + "/" + Health.MaxHealth);
     }
 }

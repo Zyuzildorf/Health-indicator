@@ -2,9 +2,8 @@ using System.Collections;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class SmoothHealthBar : HealthIndicator
+public class SmoothHealthBar : HealthSliderBar
 {
-    [SerializeField] private Slider _healthBar;
     [SerializeField] private float _duration = 2f;
 
     private Coroutine _currentCoroutine;
@@ -16,23 +15,23 @@ public class SmoothHealthBar : HealthIndicator
             StopCoroutine(_currentCoroutine);
         }
         
-        _currentCoroutine = StartCoroutine(SmoothHealthChange(healthValue));
+        _currentCoroutine = StartCoroutine(ChangeHealthSmoothly(healthValue));
     }
 
-    private IEnumerator SmoothHealthChange(int targetHealth)
+    private IEnumerator ChangeHealthSmoothly(int targetHealth)
     {
-        float targetValue = (float)targetHealth / _health.MaxHealth;
-        float startValue = _healthBar.value;
+        float targetValue = (float)targetHealth / Health.MaxHealth;
+        float startValue = HealthBar.value;
         float timePassed = 0f;
 
         while (timePassed < _duration)
         {
             timePassed += Time.deltaTime;
-            _healthBar.value = Mathf.MoveTowards(startValue, targetValue, timePassed / _duration);
+            HealthBar.value = Mathf.MoveTowards(startValue, targetValue, timePassed / _duration);
             yield return null;
         }
         
-        _healthBar.value = targetValue;
+        HealthBar.value = targetValue;
         _currentCoroutine = null;
     }
 }
