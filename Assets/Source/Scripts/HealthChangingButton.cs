@@ -2,27 +2,27 @@ using UnityEngine;
 using UnityEngine.UI;
 
 [RequireComponent(typeof(Button))]
-abstract public class HealthChangingButton : MonoBehaviour
+public abstract class HealthChangingButton : MonoBehaviour
 {
     [SerializeField] protected Health Health;
     [SerializeField] protected int Value;
 
-    private Button Button;
+    private Button _button;
 
     protected void Awake()
     {
-        Button = GetComponent<Button>();
+        _button = GetComponent<Button>();
     }
 
     protected void OnEnable()
     {
-        Button.onClick.AddListener(ChangeHealthValue);
+        _button.onClick.AddListener(ChangeHealthValue);
     }
 
     protected void OnDisable()
     {
-        Button.onClick.RemoveListener(ChangeHealthValue);
+        _button.onClick.RemoveListener(ChangeHealthValue);
     }
 
-    protected abstract void ChangeHealthValue();
+    protected abstract void ChangeHealthValue();    
 }
